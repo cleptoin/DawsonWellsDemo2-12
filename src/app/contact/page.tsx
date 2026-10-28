@@ -13,9 +13,9 @@ export default function ContactPage() {
         <aside>
           <h2>Concept locations</h2>
           {galleryLocations.map((location) => <section className="contact-location" key={location.city}><h3>{location.city}</h3><p className="muted">{location.neighbourhood}</p><dl><div><dt>Address</dt><dd>{location.address}</dd></div><div><dt>Hours</dt><dd>{location.hours}</dd></div><div><dt>Email</dt><dd>{location.email}</dd></div><div><dt>Telephone</dt><dd>{location.phone}</dd></div></dl></section>)}
-          <p className="muted">These addresses and contact details come from the supplied mockup and are illustrative.</p>
+          <p className="muted">These addresses and contact details are illustrative placeholders.</p>
         </aside>
-        <div><h2>Prepare an inquiry</h2><p>The local form validates accessibly but intentionally does not claim delivery.</p><InquiryForm /></div>
+        <div><h2>Prepare an inquiry</h2><p>This is a demo form; submissions are not sent.</p><InquiryForm /></div>
       </div>
     </div>
   );
