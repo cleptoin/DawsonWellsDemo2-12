@@ -1,7 +1,7 @@
 import { categoryImageSets, demoImages } from "@/data/image-manifest";
 import type { Artwork, ArtworkCategory } from "@/types/content";
 
-interface CatalogueGroup {
+interface CatalogGroup {
   code: string;
   series: string;
   titles: string[];
@@ -9,14 +9,14 @@ interface CatalogueGroup {
   description: string;
 }
 
-const catalogue: Record<ArtworkCategory, CatalogueGroup> = {
+const catalog: Record<ArtworkCategory, CatalogGroup> = {
   Photography: {
     code: "ph",
     series: "The Light Architecture Series",
     titles: [
       "Breakwater in Atlantic Mist (Study I)",
       "Luminescence No. 07 (Atmospheric Gradient)",
-      "Smith & Wesson Structural Inscription (Study IX)",
+      "Foundry Steel Structural Inscription (Study IX)",
       "Tennessee Horizon & Morning Mist (Fairway Study)",
       "Tidal Measure: Monolith & Fog",
       "North Wall Concrete Cadence (Exposure IV)",
@@ -177,7 +177,7 @@ const catalogue: Record<ArtworkCategory, CatalogueGroup> = {
   },
 };
 
-const categoryOrder = Object.keys(catalogue) as ArtworkCategory[];
+const categoryOrder = Object.keys(catalog) as ArtworkCategory[];
 const isoDate = "2026-10-28T00:00:00.000Z";
 
 function slugify(value: string) {
@@ -185,7 +185,7 @@ function slugify(value: string) {
 }
 
 function makeArtwork(category: ArtworkCategory, categoryIndex: number, itemIndex: number): Artwork {
-  const group = catalogue[category];
+  const group = catalog[category];
   const globalIndex = categoryIndex * 20 + itemIndex + 1;
   const title = group.titles[itemIndex];
   const isCeramic = category === "Ceramics";
@@ -209,14 +209,14 @@ function makeArtwork(category: ArtworkCategory, categoryIndex: number, itemIndex
     medium: group.media[itemIndex % group.media.length],
     dimensions: { height, width, depth, unit: "in" },
     images: [
-      { ...image, alt: `${title}, ${category.toLowerCase()} catalogue image`, caption: `${title} · primary catalogue view` },
+      { ...image, alt: `${title}, ${category.toLowerCase()} catalog image`, caption: `${title} · primary catalog view` },
       { ...demoImages.Gallery, alt: `${title} shown in the gallery concept`, caption: "Gallery installation concept" },
       { ...detailImage, alt: `Related view for ${title}`, caption: `${title} · related view` },
     ],
     featured: itemIndex < 2,
     sortOrder: globalIndex,
     edition: isEdition ? `Edition of ${editionSize} + 2 AP (Edition ${editionNumber}/${editionSize})` : "Unique original work",
-    additionalInformation: `${group.series} · concept catalogue entry · details and availability are illustrative.`,
+    additionalInformation: `${group.series} · concept catalog entry · details and availability are illustrative.`,
     createdAt: isoDate,
     updatedAt: isoDate,
     inventoryStatus: "demonstration",
@@ -224,5 +224,5 @@ function makeArtwork(category: ArtworkCategory, categoryIndex: number, itemIndex
 }
 
 export const artworks: Artwork[] = categoryOrder.flatMap((category, categoryIndex) =>
-  catalogue[category].titles.map((_, itemIndex) => makeArtwork(category, categoryIndex, itemIndex)),
+  catalog[category].titles.map((_, itemIndex) => makeArtwork(category, categoryIndex, itemIndex)),
 );

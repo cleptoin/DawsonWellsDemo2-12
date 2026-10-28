@@ -30,9 +30,9 @@ pnpm start
 
 The UI only reads through repository objects, so a future Sanity integration can implement the same methods without rewriting presentation components.
 
-## Enquiry service boundary
+## Inquiry service boundary
 
-`POST /api/enquiry` validates submissions but deliberately does not send or store them. Connect a transactional email or form provider inside `src/app/api/enquiry/route.ts`, add server-only environment variables, rate limiting, and production spam protection. Never expose provider secrets through `NEXT_PUBLIC_*` variables.
+`POST /api/inquiry` validates submissions but deliberately does not send or store them. Connect a transactional email or form provider inside `src/app/api/inquiry/route.ts`, add server-only environment variables, rate limiting, and production spam protection. Never expose provider secrets through `NEXT_PUBLIC_*` variables.
 
 ## Deployment
 

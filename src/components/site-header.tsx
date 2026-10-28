@@ -72,6 +72,7 @@ export function SiteHeader() {
 
   useEffect(() => {
     if (!open) return;
+    document.body.classList.add("has-modal");
     const panel = panelRef.current;
     const focusable = panel?.querySelectorAll<HTMLElement>("a, button");
     focusable?.[0]?.focus();
@@ -93,7 +94,10 @@ export function SiteHeader() {
       }
     };
     document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.classList.remove("has-modal");
+    };
   }, [open]);
 
   return (
@@ -101,7 +105,7 @@ export function SiteHeader() {
       <a className="skip-link" href="#main">Skip to content</a>
       <div className="masthead__utility">
         <span>New York · London · Online collection preview</span>
-        <Link href="/contact">Plan an enquiry</Link>
+        <Link href="/contact">Plan an inquiry</Link>
       </div>
       <Link className="wordmark" href="/" aria-label="Dawson Wells Gallery home">
         <Image className="wordmark__mark" src="/images/brand/dw-logo.png" alt="" width={66} height={48} priority />
@@ -169,6 +173,10 @@ export function SiteHeader() {
             <Link href="/news" onClick={() => setOpen(false)}>News &amp; updates</Link>
             <Link href="/contact" onClick={() => setOpen(false)}>Contact</Link>
           </nav>
+          <div className="mobile-menu__footer">
+            <span>New York · London · Online collection preview</span>
+            <Link href="/contact" onClick={() => setOpen(false)}>Plan an inquiry</Link>
+          </div>
         </div>
       )}
       <SearchOverlay open={searchOpen} onClose={closeSearch} />

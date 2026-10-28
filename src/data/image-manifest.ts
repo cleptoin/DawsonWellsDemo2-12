@@ -41,7 +41,7 @@ export const demoImages: Record<ArtworkCategory | "Gallery", ArtworkImage> = {
 
 const image = (src: string, alt: string, width: number, height: number): ArtworkImage => ({ src, alt, width, height });
 
-/** Rotating catalogue photography per medium; the first entry is the medium's lead image. */
+/** Rotating catalog photography per medium; the first entry is the medium's lead image. */
 export const categoryImageSets: Record<ArtworkCategory, ArtworkImage[]> = {
   Photography: [
     demoImages.Photography,

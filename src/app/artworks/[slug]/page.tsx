@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { ArtworkCard } from "@/components/artwork-card";
 import { ArtworkGallery } from "@/components/artwork-gallery";
 import { Breadcrumbs } from "@/components/breadcrumbs";
-import { EnquiryForm } from "@/components/enquiry-form";
+import { InquiryForm } from "@/components/inquiry-form";
 import { formatDimensions } from "@/lib/format";
 import { artworkRepository } from "@/lib/repositories/artwork-repository";
 
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!artwork) return { title: "Artwork not found" };
   return {
     title: artwork.title,
-    description: `${artwork.title}, from the Dawson Wells Gallery concept catalogue of ${artwork.category.toLowerCase()}.`,
+    description: `${artwork.title}, from the Dawson Wells Gallery concept catalog of ${artwork.category.toLowerCase()}.`,
     alternates: { canonical: `/artworks/${slug}` },
     openGraph: { images: [{ url: artwork.images[0].src, width: artwork.images[0].width, height: artwork.images[0].height, alt: artwork.images[0].alt }] },
   };
@@ -45,7 +45,7 @@ export default async function ArtworkPage({ params }: { params: Promise<{ slug: 
           </dl>
           <p>{artwork.description}</p>
           <p className="muted">{artwork.additionalInformation}</p>
-          <a className="button" href="#enquire">Enquire about this artwork</a>
+          <a className="button" href="#inquire">Inquire about this artwork</a>
         </aside>
       </div>
       <nav className="artwork-pagination" aria-label="Adjacent artworks">
@@ -53,7 +53,7 @@ export default async function ArtworkPage({ params }: { params: Promise<{ slug: 
         <Link href={`/artworks/${adjacent.next.slug}`}><span>Next work<small>{adjacent.next.title}</small></span><ArrowRight aria-hidden="true" /></Link>
       </nav>
       <section className="related-artworks"><h2>Related works</h2><div className="artwork-grid artwork-grid--related">{related.map((item) => <ArtworkCard key={item.id} artwork={item} />)}</div></section>
-      <section className="detail-enquiry" id="enquire"><div><h2>Ask about this work.</h2><p>Prepare an enquiry with the artwork already associated. The demonstration endpoint will validate but will not send your message.</p></div><EnquiryForm artwork={artwork.title} /></section>
+      <section className="detail-inquiry" id="inquire"><div><h2>Ask about this work.</h2><p>Prepare an inquiry with the artwork already associated. The demonstration endpoint will validate but will not send your message.</p></div><InquiryForm artwork={artwork.title} /></section>
     </div>
   );
 }

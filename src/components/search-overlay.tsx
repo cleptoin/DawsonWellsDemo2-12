@@ -20,10 +20,10 @@ interface SearchResult {
 }
 
 const sitePages: SearchResult[] = [
-  { id: "page-artworks", href: "/artworks", title: "All artworks", meta: "Browse the 100-work concept catalogue", group: "Pages" },
+  { id: "page-artworks", href: "/artworks", title: "All artworks", meta: "Browse the 100-work concept catalog", group: "Pages" },
   { id: "page-news", href: "/news", title: "News and journal", meta: "Collection notes and gallery updates", group: "Pages" },
-  { id: "page-about", href: "/about", title: "About the gallery", meta: "Programme and working approach", group: "Pages" },
-  { id: "page-contact", href: "/contact", title: "Contact", meta: "Prepare an enquiry or request information", group: "Pages" },
+  { id: "page-about", href: "/about", title: "About the gallery", meta: "Program and working approach", group: "Pages" },
+  { id: "page-contact", href: "/contact", title: "Contact", meta: "Prepare an inquiry or request information", group: "Pages" },
 ];
 
 export function SearchOverlay({ open, onClose }: SearchOverlayProps) {

@@ -8,7 +8,7 @@ export const metadata: Metadata = { title: "News & Updates", description: "Conce
 export default function NewsPage() {
   return (
     <div className="news-page section-shell">
-      <PageHeading title="News & updates" introduction="Concept exhibitions, collection notes, publications, and longer-form stories adapted from the supplied gallery mockup." />
+      <PageHeading title="News & updates" introduction="Exhibitions, collection notes, publications, and longer-form stories from the gallery." />
       <div className="news-list">{newsRepository.getAll().map((article) => <NewsCard key={article.slug} article={article} />)}</div>
     </div>
   );

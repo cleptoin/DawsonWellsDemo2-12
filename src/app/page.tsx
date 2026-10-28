@@ -12,7 +12,7 @@ import { artworkCategories } from "@/types/content";
 
 export const metadata: Metadata = {
   title: "Contemporary art, held for close looking",
-  description: "Explore the Dawson Wells Gallery concept catalogue across photography, painting, drawing, ceramics, and print.",
+  description: "Explore the Dawson Wells Gallery concept catalog across photography, painting, drawing, ceramics, and print.",
   alternates: { canonical: "/" },
 };
 
@@ -22,7 +22,7 @@ export default function HomePage() {
   const news = newsRepository.getAll();
   return (
     <>
-      <section className="home-hero home-hero--programme">
+      <section className="home-hero home-hero--program">
         <Image src={demoImages.Paintings.src} alt={demoImages.Paintings.alt} fill priority sizes="100vw" />
         <div className="home-hero__content">
           <p className="home-hero__status">Concept collection · The Material of Light</p>
@@ -36,14 +36,14 @@ export default function HomePage() {
         </div>
       </section>
       <section className="home-index-intro section-shell">
-        <p>Dawson Wells Gallery is organised as a place to look first: one programme lead, five material indexes, a selected collection, and a working journal.</p>
+        <p>Dawson Wells Gallery is organized as a place to look first: one program lead, five material indexes, a selected collection, and a working journal.</p>
         <Link className="text-link" href="/about">Read about the gallery <ArrowRight size={18} aria-hidden="true" /></Link>
       </section>
       <section className="category-index section-shell">
         <div className="section-title-row"><h2>Browse by material</h2><Link className="text-link" href="/artworks">Open full index <ArrowRight size={18} aria-hidden="true" /></Link></div>
         <div>
           {artworkCategories.map((category, index) => (
-            <Link key={category} href={`/artworks/${category.toLowerCase()}`}><span className="category-index__thumb"><Image src={categoryImageSets[category][1].src} alt="" width={categoryImageSets[category][1].width} height={categoryImageSets[category][1].height} sizes="5rem" /></span><span>{(index + 1).toString().padStart(2, "0")}</span><strong>{category}</strong><span>20 catalogue works</span><ArrowRight aria-hidden="true" /></Link>
+            <Link key={category} href={`/artworks/${category.toLowerCase()}`}><span className="category-index__thumb"><Image src={categoryImageSets[category][1].src} alt="" width={categoryImageSets[category][1].width} height={categoryImageSets[category][1].height} sizes="5rem" /></span><span>{(index + 1).toString().padStart(2, "0")}</span><strong>{category}</strong><span>20 catalog works</span><ArrowRight aria-hidden="true" /></Link>
           ))}
         </div>
       </section>
@@ -59,7 +59,7 @@ export default function HomePage() {
         <div className="home-artist__copy">
           <p className="home-artist__eyebrow">The artist &amp; founder</p>
           <h2 id="home-artist-title">Purpose, storytelling &amp; material truth.</h2>
-          <blockquote>&ldquo;Whether designing for legendary American brands or creating contemplative gallery works, my goal is to use creativity with purpose to tell stories and inspire others.&rdquo;</blockquote>
+          <blockquote>Placeholder statement — a short note from the artist about his practice will appear here.</blockquote>
           <p>{galleryProfile.biography[0]}</p>
           <div className="home-artist__actions">
             <Link className="button" href="/about">Read the full biography <ArrowRight size={18} aria-hidden="true" /></Link>
@@ -81,8 +81,8 @@ export default function HomePage() {
       <section className="gallery-introduction">
         <div className="gallery-introduction__image"><Image src={demoImages.Gallery.src} alt={demoImages.Gallery.alt} fill sizes="(max-width: 900px) 100vw, 58vw" /></div>
         <div className="gallery-introduction__copy">
-          <h2>Two cities, one programme.</h2>
-          <p>The concept places the collection in Chelsea and Mayfair, with dedicated viewing information and a direct route for artwork, press, and appointment enquiries.</p>
+          <h2>Two cities, one program.</h2>
+          <p>The concept places the collection in Chelsea and Mayfair, with dedicated viewing information and a direct route for artwork, press, and appointment inquiries.</p>
           <Link className="text-link" href="/contact">View contact information <ArrowRight size={18} aria-hidden="true" /></Link>
         </div>
       </section>
@@ -95,8 +95,8 @@ export default function HomePage() {
         <div className="news-grid">{news.slice(1, 3).map((article) => <NewsCard key={article.slug} article={article} />)}</div>
       </section>
       <section className="visit-callout section-shell">
-        <div><h2>Begin with a specific question.</h2><p>Ask about a work, the collection, press material, or a future visit. The enquiry keeps the artwork context while remaining a no-delivery demo form.</p></div>
-        <Link className="button" href="/contact">Prepare an enquiry</Link>
+        <div><h2>Begin with a specific question.</h2><p>Ask about a work, the collection, press material, or a future visit. Your inquiry keeps the artwork details attached so the conversation can start in the right place.</p></div>
+        <Link className="button" href="/contact">Prepare an inquiry</Link>
       </section>
     </>
   );

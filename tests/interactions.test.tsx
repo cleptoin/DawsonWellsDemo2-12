@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { CollectionBrowser } from "@/components/collection-browser";
-import { EnquiryForm } from "@/components/enquiry-form";
+import { InquiryForm } from "@/components/inquiry-form";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { artworks } from "@/data/artworks";
@@ -33,11 +33,13 @@ describe("interactive gallery controls", () => {
     expect(about).toHaveFocus();
   });
 
-  it("ends the footer with the Clepto ribbon", () => {
+  it("ends the footer with the Clepto concept credit and demo disclaimer", () => {
     render(<SiteFooter />);
-    const ribbon = screen.getByRole("region", { name: "Built by Clepto" });
+    const ribbon = screen.getByRole("region", { name: "Concept credit" });
     expect(ribbon).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /Visit www.clepto.in/ })).toHaveAttribute("href", "https://www.clepto.in");
+    expect(screen.getByRole("link", { name: /www.clepto.in/ })).toHaveAttribute("href", "https://www.clepto.in");
+    expect(ribbon).toHaveTextContent("Concept prepared for Dawson Wells Gallery by Clepto");
+    expect(screen.getAllByText(/illustrative demo content/).length).toBeGreaterThan(0);
   });
 
   it("opens the mobile navigation and closes it with Escape", async () => {
@@ -72,14 +74,14 @@ describe("interactive gallery controls", () => {
 
   it("validates required fields and reports the no-delivery demo state", async () => {
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: true, json: async () => ({ demo: true }) }));
-    render(<EnquiryForm artwork="Mineral Field" />);
-    fireEvent.click(screen.getByRole("button", { name: "Prepare enquiry" }));
+    render(<InquiryForm artwork="Mineral Field" />);
+    fireEvent.click(screen.getByRole("button", { name: "Prepare inquiry" }));
     expect(screen.getByText("Enter your full name.")).toBeInTheDocument();
     fireEvent.change(screen.getByLabelText(/Full name/), { target: { value: "Avery Chen" } });
     fireEvent.change(screen.getByLabelText(/Email address/), { target: { value: "avery@example.com" } });
     fireEvent.change(screen.getByRole("textbox", { name: /Message/ }), { target: { value: "Please share more information about this demonstration artwork." } });
     fireEvent.click(screen.getByRole("checkbox"));
-    fireEvent.click(screen.getByRole("button", { name: "Prepare enquiry" }));
+    fireEvent.click(screen.getByRole("button", { name: "Prepare inquiry" }));
     expect(await screen.findByText("Your message is prepared, but it has not been sent.")).toBeInTheDocument();
   });
 });

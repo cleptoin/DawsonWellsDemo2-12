@@ -10,7 +10,7 @@ export const metadata: Metadata = { title: "About", description: "Dawson Wells G
 export default function AboutPage() {
   return (
     <div className="editorial-page section-shell">
-      <PageHeading title="A place for sustained attention." introduction="Dawson Wells Gallery is a concept for an art-led programme connecting material practice, architectural space, and the experience of looking slowly." />
+      <PageHeading title="A place for sustained attention." introduction="Dawson Wells Gallery is a concept for an art-led program connecting material practice, architectural space, and the experience of looking slowly." />
       <figure className="editorial-image"><Image src={demoImages.Gallery.src} alt={demoImages.Gallery.alt} width={demoImages.Gallery.width} height={demoImages.Gallery.height} priority /><figcaption>Gallery interior concept · Chelsea, New York.</figcaption></figure>
       <section className="editorial-columns">
         <div className="about-founder"><Image className="about-founder__portrait" src={artistPortrait.src} alt={artistPortrait.alt} width={artistPortrait.width} height={artistPortrait.height} sizes="14rem" /><h2>{galleryProfile.founder}<br /><span className="muted">{galleryProfile.title}</span></h2></div>

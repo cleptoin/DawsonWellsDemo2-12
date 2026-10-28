@@ -13,7 +13,7 @@ export function SiteFooter() {
           <p className="site-footer__statement">Art rewards time.</p>
           <div>
             <p>This digital collection is an invitation to look closely, follow material connections, and begin a specific conversation.</p>
-            <Link className="footer-enquiry" href="/contact">Prepare an enquiry <ArrowUpRight size={16} aria-hidden="true" /></Link>
+            <Link className="footer-inquiry" href="/contact">Prepare an inquiry <ArrowUpRight size={16} aria-hidden="true" /></Link>
           </div>
         </div>
         <div className="site-footer__columns">
@@ -49,29 +49,17 @@ export function SiteFooter() {
           <span>{demoDisclaimer}</span>
         </div>
       </div>
-      <section className="clepto-ribbon" aria-label="Built by Clepto">
+      <section className="clepto-ribbon" aria-label="Concept credit">
         <div className="clepto-ribbon__inner">
-          <div className="clepto-ribbon__strip">
-            <span className="clepto-ribbon__badge"><span className="clepto-ribbon__pulse" aria-hidden="true" />Demonstration showcase · Designed &amp; built by Clepto</span>
-            <span className="clepto-ribbon__client">Prepared for Dawson Wells Gallery</span>
-          </div>
           <div className="clepto-ribbon__grid">
             <div className="clepto-ribbon__copy">
-              <h2>Want a digital experience like this?</h2>
-              <p>This gallery website is a demonstration prototype designed and developed by <strong>Clepto</strong>. We build bespoke, museum-grade websites, viewing rooms, and portfolios for artists, galleries, and institutions.</p>
-              <ul className="clepto-ribbon__pills">
-                <li>Next.js App Router</li>
-                <li>Editorial typography</li>
-                <li>Mobile-first &amp; accessible</li>
-              </ul>
+              <span className="clepto-ribbon__badge"><span className="clepto-ribbon__pulse" aria-hidden="true" />Concept prototype</span>
+              <h2>Concept prepared for Dawson Wells Gallery by Clepto</h2>
+              <p>This website is a concept prototype. All names, artworks, dates, locations and contact details are illustrative demo content.</p>
             </div>
-            <div className="clepto-ribbon__card">
-              <p className="clepto-ribbon__label">Talk to the Clepto team</p>
-              <div className="clepto-ribbon__actions">
-                <a className="clepto-ribbon__primary" href="https://www.clepto.in" target="_blank" rel="noopener noreferrer">Visit www.clepto.in <ArrowUpRight size={15} aria-hidden="true" /></a>
-                <a className="clepto-ribbon__secondary" href="mailto:contact@clepto.in?subject=Inquiry%20regarding%20Dawson%20Wells%20Gallery%20showcase"><Mail size={14} aria-hidden="true" /> contact@clepto.in</a>
-              </div>
-              <p className="clepto-ribbon__note">Response within one business day · Worldwide</p>
+            <div className="clepto-ribbon__actions">
+              <a className="clepto-ribbon__primary" href="https://www.clepto.in" target="_blank" rel="noopener noreferrer">www.clepto.in <ArrowUpRight size={15} aria-hidden="true" /></a>
+              <a className="clepto-ribbon__secondary" href="mailto:contact@clepto.in"><Mail size={14} aria-hidden="true" /> contact@clepto.in</a>
             </div>
           </div>
         </div>

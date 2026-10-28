@@ -5,7 +5,7 @@ import { useState, type FormEvent } from "react";
 
 type Errors = Partial<Record<"name" | "email" | "message" | "privacy", string>>;
 
-export function EnquiryForm({ artwork }: { artwork?: string }) {
+export function InquiryForm({ artwork }: { artwork?: string }) {
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<"idle" | "loading" | "demo">("idle");
   const [copied, setCopied] = useState(false);
@@ -24,14 +24,14 @@ export function EnquiryForm({ artwork }: { artwork?: string }) {
     if (Object.keys(nextErrors).length) return;
     setStatus("loading");
     const payload = Object.fromEntries(data.entries());
-    const response = await fetch("/api/enquiry", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...payload, privacy: true }) });
+    const response = await fetch("/api/inquiry", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...payload, privacy: true }) });
     const result = await response.json();
     if (!response.ok) {
       setErrors({ message: result.message ?? "The demonstration endpoint could not validate this message. Review the fields and try again." });
       setStatus("idle");
       return;
     }
-    setMessageText(`Name: ${payload.name}\nEmail: ${payload.email}\nPhone: ${payload.phone || "Not supplied"}\nType: ${payload.enquiryType}\nArtwork: ${payload.artwork || "Not specified"}\n\n${payload.message}`);
+    setMessageText(`Name: ${payload.name}\nEmail: ${payload.email}\nPhone: ${payload.phone || "Not supplied"}\nType: ${payload.inquiryType}\nArtwork: ${payload.artwork || "Not specified"}\n\n${payload.message}`);
     setStatus("demo");
   }
 
@@ -42,15 +42,15 @@ export function EnquiryForm({ artwork }: { artwork?: string }) {
   };
 
   return (
-    <form className="enquiry-form" onSubmit={submit} noValidate>
+    <form className="inquiry-form" onSubmit={submit} noValidate>
       <div className="form-grid">
         <Field label="Full name" name="name" error={errors.name} required />
         <Field label="Email address" name="email" type="email" error={errors.email} required />
         <Field label="Phone number" name="phone" type="tel" hint="Optional" />
         <label className="field">
-          <span>Enquiry type</span>
-          <select name="enquiryType" defaultValue={artwork ? "Artwork enquiry" : "General enquiry"}>
-            <option>Artwork enquiry</option><option>Gallery visit</option><option>Press and editorial</option><option>General enquiry</option>
+          <span>Inquiry type</span>
+          <select name="inquiryType" defaultValue={artwork ? "Artwork inquiry" : "General inquiry"}>
+            <option>Artwork inquiry</option><option>Gallery visit</option><option>Press and editorial</option><option>General inquiry</option>
           </select>
           <small aria-hidden="true">&nbsp;</small>
         </label>
@@ -68,7 +68,7 @@ export function EnquiryForm({ artwork }: { artwork?: string }) {
       </label>
       {errors.privacy && <p className="field-error">{errors.privacy}</p>}
       <button className="button" type="submit" disabled={status === "loading"}>
-        {status === "loading" ? <><LoaderCircle className="spinner" size={18} aria-hidden="true" /> Validating</> : "Prepare enquiry"}
+        {status === "loading" ? <><LoaderCircle className="spinner" size={18} aria-hidden="true" /> Validating</> : "Prepare inquiry"}
       </button>
       {status === "demo" && (
         <div className="form-feedback" role="status">
