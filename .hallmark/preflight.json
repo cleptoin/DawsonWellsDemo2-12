@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-28",
+  "framework": "Next.js 16 App Router with TypeScript",
+  "fontStack": "custom local Cormorant Garamond + Manrope",
+  "palette": "custom warm ivory OKLCH system",
+  "motion": "motion-cut with functional transitions only",
+  "spacing": "4-point semantic scale",
+  "designSystem": "design.md; editorial multi-page system",
+  "navigation": "N13 search-led compact navigation",
+  "footer": "Ft1 mast-headed footer"
+}

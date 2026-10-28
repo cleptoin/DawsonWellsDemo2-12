@@ -1,0 +1,73 @@
+/* Hallmark design tokens · Dawson Wells Gallery */
+:root {
+  --color-paper: oklch(97% 0.009 82);
+  --color-paper-2: oklch(94% 0.012 82);
+  --color-paper-3: oklch(90% 0.014 82);
+  --color-surface: oklch(99% 0.006 82);
+  --color-ink: oklch(19% 0.012 65);
+  --color-ink-2: oklch(34% 0.012 65);
+  --color-muted: oklch(46% 0.012 72);
+  --color-neutral: oklch(56% 0.01 75);
+  --color-rule: oklch(80% 0.013 82);
+  --color-rule-2: oklch(87% 0.012 82);
+  --color-accent: oklch(52% 0.145 42);
+  --color-accent-ink: oklch(98% 0.009 82);
+  --color-focus: oklch(46% 0.2 42);
+  --color-error: oklch(48% 0.17 28);
+  --color-success: oklch(43% 0.11 145);
+  --color-overlay: oklch(12% 0.012 65 / 0.82);
+  --color-overlay-clear: oklch(12% 0.012 65 / 0);
+  --color-backdrop: oklch(12% 0.012 65 / 0.62);
+  --color-shadow: oklch(19% 0.012 65 / 0.12);
+
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-body: "Manrope", "Trebuchet MS", sans-serif;
+  --font-wordmark: "Cormorant Garamond", "Times New Roman", serif;
+
+  --space-3xs: 0.125rem;
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --space-4xl: 9rem;
+
+  --text-xs: 0.72rem;
+  --text-sm: 0.82rem;
+  --text-base: 1rem;
+  --text-md: 1.25rem;
+  --text-lg: 1.56rem;
+  --text-xl: 1.95rem;
+  --text-2xl: 2.44rem;
+  --text-3xl: 3.05rem;
+  --text-4xl: 3.81rem;
+  --text-display: clamp(2.9rem, 7vw, 5.25rem);
+  --text-display-small: clamp(2.5rem, 5vw, 4.4rem);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long: 420ms;
+  --rule-hair: 1px;
+  --rule-strong: 2px;
+  --radius-small: 0.15rem;
+  --radius-round: 999px;
+  --radius-card: 0.15rem;
+  --radius-pill: 999px;
+  --radius-input: 0.15rem;
+
+  --z-base: 1;
+  --z-raised: 10;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal: 400;
+  --z-toast: 500;
+  --z-tooltip: 600;
+
+  --shadow-lift: 0 0.75rem 2rem var(--color-shadow);
+}
